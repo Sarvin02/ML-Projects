@@ -34,5 +34,3 @@ The anomaly detection model using KNN was successfully trained on a synthetic da
 ## References
 
 - [PyOD: A Python Toolbox for Scalable Outlier Detection](https://github.com/yzhao062/pyod)
-
-
