@@ -1,36 +1,43 @@
 # Anomaly Detection
 
-This document summarizes the key points and findings from the `anomalyDetection.ipynb` notebook.
+
+This document summarizes the key points and findings from the `anamolyDetection.ipynb` notebook, which demonstrates advanced anomaly detection for cybersecurity using Isolation Forest.
 
 ## Overview
 
-Anomaly detection involves identifying data points, events, or observations that deviate significantly from the norm. This notebook demonstrates anomaly detection using the K-Nearest Neighbors (KNN) algorithm on a synthetic dataset.
+
+Anomaly detection involves identifying data points, events, or observations that deviate significantly from the norm. This notebook demonstrates anomaly detection using the Isolation Forest algorithm, which is well-suited for cybersecurity applications such as detecting unusual network traffic, login attempts, or system events. The approach is demonstrated on a synthetic dataset simulating cybersecurity events.
+
 
 ## Dataset
 
-- **Source**: The data is synthetically generated using the pyod.utils.data.generate_data` function.
-- **Description**: A random dataset consisting of 300 data points with two features. 10% of the data points are generated as outliers.
-- **Features**: Two numerical features, referred to as 'Feature 1' and 'Feature 2' in the analysis.
+- **Source**: The data is synthetically generated using NumPy to simulate cybersecurity events (e.g., network traffic, login attempts).
+- **Description**: 300 data points with two features. 10% of the data points are generated as anomalies (outliers), simulating rare or suspicious events.
+- **Features**: Two numerical features, e.g., 'bytes sent' and 'login duration'.
+
 
 ## Methodology
 
-1. **Data Preprocessing**: No explicit data preprocessing steps such as handling missing values or feature scaling were performed as the data was synthetically generated and clean.
+1. **Data Generation**: Synthetic data is created to simulate normal and anomalous cybersecurity events.
 
 2. **Modeling**:
-   - **Algorithm used**: K-Nearest Neighbors (KNN) from the PyOD library.
-   - **Evaluation metric**: The number of prediction errors, which is the count of misclassified data points (inliers predicted as outliers and vice-versa).
+   - **Algorithm used**: Isolation Forest from scikit-learn.
+   - **Evaluation metric**: The number of detected anomalies (outliers) and visual inspection of the decision boundary.
 
-3. **Hyperparameter Tuning**: No hyperparameter tuning was performed. The `contamination` parameter of the KNN model was set to `0.1`, which is the known fraction of outliers in the dataset.
+3. **Visualization**: The results are visualized in 2D, showing the decision boundary, normal points, and anomalies. The plot uses color coding and a legend for clarity.
+
 
 ## Results
 
-- **Model**: K-Nearest Neighbors (KNN).
-- **Performance**: The model's performance is evaluated by the number of prediction errors. The notebook calculates and prints this number. The notebook also visualizes the learned decision boundary for the outliers.
+- **Model**: Isolation Forest.
+- **Performance**: The model detects anomalies in the synthetic cybersecurity dataset. The number of detected anomalies is printed, and the decision boundary is visualized. Normal events and anomalies are clearly separated in the plot.
+
 
 ## Conclusion
 
-The anomaly detection model using KNN was successfully trained on a synthetic dataset. The model's decision boundary was visualized to show how it separates inliers from outliers. The performance was measured by the number of misclassifications. For a more robust evaluation, one could use metrics like Precision, Recall, and F1-score on a labeled real-world dataset.
+The anomaly detection model using Isolation Forest was successfully applied to a synthetic cybersecurity dataset. The model's decision boundary was visualized, showing clear separation between normal and anomalous events. The number of detected anomalies is reported. For real-world applications, further evaluation using metrics like Precision, Recall, and F1-score is recommended, along with the use of real labeled cybersecurity data.
+
 
 ## References
 
-- [PyOD: A Python Toolbox for Scalable Outlier Detection](https://github.com/yzhao062/pyod)
+- [scikit-learn: Isolation Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html)
